@@ -17,6 +17,10 @@ const MONGO_URI = process.env.MONGO_URL;
 app.use(bodyParser.json());
 
 // app.use("/resumes", express.static(path.join(__dirname, "resumes")));
+app.use(express.json());
+const _dirname = path.dirname("");
+const buildpath = path.join(_dirname, "../job-frontend/build");
+app.use(express.static(buildpath));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
